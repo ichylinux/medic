@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919140613) do
+ActiveRecord::Schema.define(:version => 20130924033148) do
+
+  create_table "seals", :force => true do |t|
+    t.string   "file",              :null => false
+    t.string   "original_filename", :null => false
+    t.string   "content_type",      :null => false
+    t.integer  "file_size",         :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
