@@ -23,3 +23,11 @@ end
 もし /^アップローダーをモデルにマウント$/ do
   diff 'app/models/seal.rb', 'features/step_definitions/開発日記/seal.rb.txt'
 end
+
+もし /^アップロードページを作成$/ do
+  git_diff 'config/application.rb'
+  git_diff 'config/routes.rb'
+  show 'app/controllers/seals_controller.rb'
+  git_diff 'app/controllers/welcome_controller.rb'
+  git_diff 'app/views/welcome/index.html.erb'
+end

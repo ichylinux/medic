@@ -3,7 +3,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    
-  end  
+    @seal = Seal.new
+  end
 
 end
