@@ -1,0 +1,11 @@
+<div data-role="page" id="upload_dialog">
+  <div data-role="header">
+    <h1>アップロード</h1>
+  </div>
+  <div data-role="content">
+    <%= form_for @seal, :html => {:'data-ajax' => false} do |f| %>
+      <div><%= f.file_field :file %></div>
+      <div><%= f.submit 'アップロード' %></div>
+    <% end %>
+  </div>
+</div>

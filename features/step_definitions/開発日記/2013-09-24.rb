@@ -25,9 +25,14 @@ end
 end
 
 もし /^アップロードページを作成$/ do
-  git_diff 'config/application.rb'
+  git_diff 'config/application.rb', :from => 50, :to => 55
   git_diff 'config/routes.rb'
-  show 'app/controllers/seals_controller.rb'
+  show 'app/controllers/seals_controller.rb', :as => 'new'
+  show 'app/views/seals/new.html.erb', :as => 'new'
+end
+
+もし /^トップページのコンテンツを作成$/ do
   git_diff 'app/controllers/welcome_controller.rb'
   git_diff 'app/views/welcome/index.html.erb'
+  show 'app/assets/stylesheets/welcome.css.scss', :as => 'new'
 end

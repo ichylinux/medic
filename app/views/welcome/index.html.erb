@@ -3,17 +3,13 @@
     <h1>お薬手帳</h1>
   </div>
   <div data-role="content">
-    <a href="#upload_dialog" data-rel="dialog">お薬手帳シールをアップロード</a>
+    <ul class="seals">
+      <% @seals.each do |s| %>
+        <li><%= image_tag download_seal_path(s) %></li>
+      <% end %>
+    </ul>
   </div>
-</div>
-<div data-role="page" id="upload_dialog">
-  <div data-role="header">
-    <h1>アップロード</h1>
-  </div>
-  <div data-role="content">
-    <%= form_for @seal, :html => {:'data-ajax' => false} do |f| %>
-      <div><%= f.file_field :file %></div>
-      <div><%= f.submit 'アップロード' %></div>
-    <% end %>
+  <div data-role="footer">
+    <%= link_to 'お薬手帳シールをアップロード', new_seal_path, :'data-rel' => 'dialog' %>
   </div>
 </div>

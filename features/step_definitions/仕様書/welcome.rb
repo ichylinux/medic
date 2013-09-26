@@ -9,9 +9,3 @@ end
   pause 1
   assert_url '/(\?.*)?$'
 end
-
-ならば /^アップロードダイアログが表示される$/ do
-  assert page.has_selector?('div#upload_dialog')
-  pause 1
-  capture
-end
