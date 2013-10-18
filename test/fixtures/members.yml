@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 member1:
-  id:1
-  user_id:1
-  name:太郎
+  id: 1
+  user_id: 1
+  name: 太郎
 
 member2:
-  id:2
-  name:花子
+  id: 2
+  name: 花子
