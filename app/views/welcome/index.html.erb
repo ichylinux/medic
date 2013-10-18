@@ -11,5 +11,6 @@
   </div>
   <div data-role="footer" data-position="fixed">
     <%= link_to 'お薬手帳シールをアップロード', new_seal_path, :'data-rel' => 'dialog' %>
+    <%= link_to 'ログアウト', destroy_user_session_path, :method => 'delete' %>
   </div>
 </div>
