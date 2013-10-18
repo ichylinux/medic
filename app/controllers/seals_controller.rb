@@ -8,6 +8,7 @@ class SealsController < ApplicationController
 
   def create
     @seal = Seal.new(params[:seal])
+    @seal.member_id = current_user.member.id
     @seal.save!
     redirect_to root_path
   end
