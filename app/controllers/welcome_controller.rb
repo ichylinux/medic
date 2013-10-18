@@ -3,7 +3,9 @@
 class WelcomeController < ApplicationController
 
   def index
-    @seals = Seal.all(:conditions => ['member_id',current_user.member.id])
+    condition = SealCondition.new
+    condition.current_user_id = current_user.id
+    @seals = Seal.search(condition)
   end  
 
 end

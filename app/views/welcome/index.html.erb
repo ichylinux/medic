@@ -12,7 +12,6 @@
   <div data-role="footer" data-position="fixed">
     <%= link_to 'お薬手帳シールをアップロード', new_seal_path, :'data-rel' => 'dialog' %>
     <%= link_to 'ログアウト', destroy_user_session_path, :method => 'delete' %>
-    <%= link_to '個人設定', edit_member_path(current_user.member) %>
     <script>
       $(document).ready(function(){
         $(document.body).delegate('form[action="/users/sign_out"]', 'submit', function() {
@@ -20,5 +19,6 @@
         });
       });
     </script>
+    <%= link_to '個人設定', edit_member_path(current_user.member) %>
   </div>
 </div>

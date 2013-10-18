@@ -1,0 +1,15 @@
+<div data-role="page" id="welcome" data-url="<%= root_path %>">
+  <div data-role="header">
+    <h1>個人設定</h1>
+  </div>
+  <div data-role="content">
+    <%= form_for @member, :html => {:'data-ajax' => false} do |f| %>
+      <div>名前：<%= f.text_field :name %></div>
+      <div><%= f.submit '更新' %></div>
+    <% end %>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <%= link_to '戻る', root_path %>
+    <%= link_to 'ログアウト', destroy_user_session_path, :method => 'delete' %>
+  </div>
+</div>
