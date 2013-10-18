@@ -4,6 +4,11 @@
   sign_in email
 end
 
+もし /^ログアウト をクリックする$/ do
+  click_on 'ログアウト'
+  confirm
+end
+
 ならば /^ログイン画面に遷移する$/ do
   assert_url '/users/sign_in'
 end
