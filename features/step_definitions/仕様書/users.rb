@@ -5,5 +5,7 @@
 end
 
 ならば /^アカウント作成画面に遷移する$/ do
+  assert page.has_selector?('input[type="submit"][value="Sign up"]')
+  pause 3
   assert_url '/users/sign_up'
 end
