@@ -1,8 +1,11 @@
 # coding: UTF-8
 
 もし /^お薬手帳シールのキャプチャ画像を添付する$/ do
-  @file = 'test/data/1.png'
-  attach_file :seal_file, @file
+  @file = "#{Rails.root}/test/data/1.png"
+  within 'div#upload_dialog' do
+    attach_file :seal_file, @file
+  end
+  capture
 end
 
 ならば /^アップロードダイアログが表示される$/ do
