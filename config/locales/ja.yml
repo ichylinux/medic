@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      seal:
+        file: シール画像
+        hospital_name: 病院名

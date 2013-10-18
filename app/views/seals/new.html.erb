@@ -4,7 +4,14 @@
   </div>
   <div data-role="content">
     <%= form_for @seal, :html => {:'data-ajax' => false} do |f| %>
-      <div><%= f.file_field :file %></div>
+      <div>
+        <%= f.label :file %>
+        <%= f.file_field :file %>
+      </div>
+      <div>
+        <%= f.label :hospital_name %>
+        <%= f.text_field :hospital_name %>
+      </div>
       <div><%= f.submit 'アップロード' %></div>
     <% end %>
   </div>
