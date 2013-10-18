@@ -18,10 +18,12 @@
       """
     * サーバにログインし、以下のコマンドを実行
       """
+      <b>
       $ ssh ホスト名
       $ rake dad:unicorn:install RAILS_ENV=production RAILS_ROOT=/home/${USER}/apps/medic/current
-      $ rake dad:nginx:app:config RAILS_ENV=production RAILS_ROOT=/home/${USER}/apps/medic/current
       $ cap deploy:setup
       $ cap deploy:cold
+      $ rake dad:nginx:app:config RAILS_ENV=production RAILS_ROOT=/home/${USER}/apps/medic/current
       $ sudo /etc/init.d/nginx restart
+      </b>
       """
