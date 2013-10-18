@@ -3,8 +3,12 @@
     <h1>個人設定</h1>
   </div>
   <div data-role="content">
-    <%= form_for @member do |f| %>
+    <%= form_for @own do |f| %>
       <div>名前：<%= f.text_field :name %></div>
+      <div>家族：</div>
+      <% @own.family.members.each do |member| %>
+        <div><%= member.name %></div>
+      <% end %>
       <div><%= f.submit '更新' %></div>
     <% end %>
   </div>
