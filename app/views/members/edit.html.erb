@@ -1,9 +1,9 @@
-<div data-role="page" id="welcome" data-url="<%= root_path %>">
+<div data-role="page" id="welcome" data-url="<%= edit_member_path %>">
   <div data-role="header">
     <h1>個人設定</h1>
   </div>
   <div data-role="content">
-    <%= form_for @member, :html => {:'data-ajax' => false} do |f| %>
+    <%= form_for @member do |f| %>
       <div>名前：<%= f.text_field :name %></div>
       <div><%= f.submit '更新' %></div>
     <% end %>
