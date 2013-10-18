@@ -15,7 +15,7 @@ class SealsController < ApplicationController
   def download
     @seal = Seal.find(params[:id])
     if @seal.file.present?
-      send_file(@seal.file.path)
+      send_file @seal.file.path, :type => @seal.content_type
     else
       render :nothing => true
     end
