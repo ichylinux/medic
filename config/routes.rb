@@ -8,6 +8,8 @@ Medic::Application.routes.draw do
     end
   end
 
+  resources :members
+  
   root :to => 'welcome#index'
 
 end
