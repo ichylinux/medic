@@ -1,6 +1,9 @@
 <div data-role="page" id="welcome" data-url="<%= root_path %>">
   <div data-role="header">
     <h1>お薬手帳</h1>
+    <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+      <a href="#menu" data-role="button" data-icon="gear" data-iconpos="notext">メニュー</a>
+    </div>
   </div>
   <div data-role="content">
     <ul class="seals">
@@ -11,19 +14,5 @@
   </div>
   <div data-role="footer" data-position="fixed">
     <%= link_to 'お薬手帳シールをアップロード', new_seal_path, :'data-rel' => 'dialog' %>
-    <%= link_to 'ログアウト', destroy_user_session_path, :method => 'delete' %>
-    <script>
-      $(document).ready(function(){
-        $(document.body).delegate('form[action="/users/sign_out"]', 'submit', function() {
-          $(this).attr('data-ajax', false);
-          if (!confirm('<%= t('messages.confirm_sign_out') %>')) {
-            return false;
-          }
-          
-          return true;
-        });
-      });
-    </script>
-    <%= link_to '個人設定', edit_member_path(current_user.member) %>
   </div>
 </div>

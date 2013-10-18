@@ -10,6 +10,7 @@
 <body>
 
 <%= yield %>
+<%= render 'common/menu' unless request.path.start_with? '/users' %>
 
 </body>
 </html>

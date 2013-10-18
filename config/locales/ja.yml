@@ -4,6 +4,3 @@ ja:
       seal:
         file: シール画像
         hospital_name: 病院名
-
-  messages:
-    confirm_sign_out: 'ログアウトします。よろしいですか？'
