@@ -33,7 +33,7 @@ gem 'jquery_mobile_rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano', '< 3.0.0'
