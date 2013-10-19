@@ -3,7 +3,7 @@
 class SealUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -14,6 +14,10 @@ class SealUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "/var/lib/medic/#{Rails.env}/#{model.class.to_s.underscore}/#{model.member_id}/#{model.id}"
+  end
+
+  def cache_dir
+    "/tmp/medic-cache"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -42,9 +46,9 @@ class SealUploader < CarrierWave::Uploader::Base
   end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :scale => [50, 50]
-  # end
+  version :thumb do
+    process :resize_to_fit => [120, 90]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

@@ -9,6 +9,7 @@ gem 'carrierwave'
 gem 'daddy'
 gem 'devise'
 gem 'mysql2'
+gem 'rmagick'
 gem 'thin'
 
 # Gems used only for assets and not required
