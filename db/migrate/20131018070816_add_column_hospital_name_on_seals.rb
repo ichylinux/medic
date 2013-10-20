@@ -4,6 +4,6 @@ class AddColumnHospitalNameOnSeals < ActiveRecord::Migration
   end
 
   def down
-    remove_column :seals
+    remove_column :seals, :hospital_name
   end
 end
