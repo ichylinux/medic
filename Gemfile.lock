@@ -71,7 +71,7 @@ GEM
       cucumber (>= 1.2.0)
       nokogiri (>= 1.5.0)
       rails (>= 3.0.0)
-    daddy (0.1.14)
+    daddy (0.1.15)
       capybara
       ci_reporter
       cucumber
