@@ -1,13 +1,10 @@
 class MembersController < ApplicationController
   def edit
-    @own = current_user.member
-    @members = []
-    #@own.families.each do |family|
-    #  @members.concat family.members
-    #end
-    #@members.each do |member|
-    #  logger.debug member.name
-    #end
+    @member = current_user.member
+    @family_members = []
+    if @member.family_member.member_type == "0"
+      @family_members = @member.family_members_except_me
+    end
     
   end
   def update

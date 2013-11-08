@@ -3,13 +3,24 @@
     <h1>個人設定</h1>
   </div>
   <div data-role="content">
-    <%= form_for @own do |f| %>
-      <div>名前：<%= f.text_field :name %></div>
-      <div>家族：</div>
-      <% @own.family.members.each do |member| %>
-        <div><%= member.name %></div>
+    <%= form_for @member do |f| %>
+    <table>
+        <tr><td>名前：<%= f.text_field :name %></td></tr>
+      <% if @family_members.size > 0 %>
+        <tr><td>家族：</td></tr>
+        <% @family_members.each_with_index do |family_member, i| @family_member = family_member %>
+          <tr><td><%= text_field 'family_member', :name, :index => i %></td></tr>
+        <% end %>
+        <tr id='add_family_member'><td align='right'><a href='#' onclick='add_family_member();'>家族追加</a></td></tr>
+        <script>
+          function add_family_member() {
+            }
+        </script>
       <% end %>
-      <div><%= f.submit '更新' %></div>
+    </table>
+      <div>
+        <%= f.submit '更新' %>
+      </div>
     <% end %>
   </div>
   <div data-role="footer" data-position="fixed">
