@@ -11,3 +11,9 @@ end
 もし /^検索メソッドを作成$/ do
   git_diff 'app/models/seal.rb', :from => 5, :to => 15
 end
+
+もし /^検索$/ do
+  git_diff 'app/controllers/welcome_controller.rb',
+     :between => 'b15c3d1f142d0f7afda0493a12cd5cd154c89504',
+     :and => '1494aedc53cf28b5dca0dc0c4db921d117fbb9ab'
+end

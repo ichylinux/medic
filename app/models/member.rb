@@ -1,11 +1,12 @@
 class Member < ActiveRecord::Base
   belongs_to :user
   has_one :family_member, :dependent => :destroy
-  #has_many :families, :through => :family_members
   has_one :family, :through => :family_member
-  
-  attr_accessible :name, :user_id
-  
+
+  def family_owner?
+    return true unless family_member
+    family_member.owner?
+  end
   
   def family_members_except_me
     members = []
