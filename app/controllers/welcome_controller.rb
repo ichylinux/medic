@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
 
     @member = current_user.member
     @family_members = []
-    if @member.family_member.member_type == "0"
+    if @member.family_member != nil and @member.family_member.member_type == "0"
       @family_members = @member.family.members
     end
   end

@@ -8,14 +8,24 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_one :member
-  accepts_nested_attributes_for :member
 
-  before_save :set_member
-
+  #before_save :set_member
+  after_save :create_family_members
+  
   private
 
-  def set_member
-    self.member ||= self.build_member
+  def create_family_members
+    
+    if self.member.nil?
+      self.member = self.build_member
+      self.save!
+      
+      family = Family.new
+      family.family_members << FamilyMember.new
+      family.family_members[0].member = self.member
+      family.save!
+    end
+    
   end
-
+  
 end
