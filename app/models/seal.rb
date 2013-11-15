@@ -13,4 +13,12 @@ class Seal < ActiveRecord::Base
     where(sql.to_a)
   end
 
+  def receipt_date_string
+    if receipt_date
+      receipt_date.strftime('%Y-%m-%d')
+    else
+      created_at.strftime('%Y-%m-%d')
+    end
+  end
+
 end

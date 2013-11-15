@@ -6,6 +6,6 @@ class WelcomeController < ApplicationController
     condition = SealCondition.new
     condition.current_user_id = current_user.id
     @seals = Seal.search(condition)
-  end  
+  end
 
 end

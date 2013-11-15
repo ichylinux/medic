@@ -5,3 +5,17 @@
     height: 90%;
   }
 }
+
+.seal {
+  clear: both;
+  border: solid 1px #595757;
+  border-radius: 8px;
+  padding: 4px 8px;
+  height: 100px;
+  overflow: hidden;
+
+  img {
+    float: left;
+    margin: 0 8px 0 0;
+  }
+}

@@ -1,6 +1,6 @@
 # language: ja
 
-機能:
+機能: スプリント６
 
   シナリオ: ログアウト
     http://www.channaly.info/redirect-sign-out-link-in-devise-rails3-with-jquery-mobile/
@@ -15,3 +15,9 @@
     でリクエストを行う制御を無効化する。
     
     * ログアウトのリンクを作成
+    * AJAXの制御
+
+  シナリオ: ログインユーザのシールだけに絞り込む
+    個人情報でもあるので、他のユーザのシールは参照できないようにする。
+    
+    * 検索メソッドを作成

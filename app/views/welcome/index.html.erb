@@ -8,7 +8,7 @@
   <div data-role="content">
     <ul class="seals">
       <% @seals.each do |s| %>
-        <li><%= image_tag download_seal_path(s, :thumb => true) %></li>
+        <li><%= render 'show_seal', :seal => s %></li>
       <% end %>
     </ul>
   </div>
