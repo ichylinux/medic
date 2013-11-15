@@ -7,9 +7,9 @@
   </div>
 
   <div data-role="content">
-    <% if @family_members.present? %>
+    <% if @members.present? %>
       <%= form_tag :action => 'get_seals' do %>
-        <%= select_tag :member_id, options_from_collection_for_select(@family_members, "id", "name", :selected => current_user.member.id), :onchange => 'select_member(this);' %>
+        <%= select_tag :member_id, options_from_collection_for_select(@members, "id", "name", :selected => current_user.member.id), :onchange => 'select_member(this);' %>
       <% end %>
     <% end %>
 

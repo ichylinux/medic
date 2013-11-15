@@ -9,7 +9,8 @@ class WelcomeController < ApplicationController
     @seals = Seal.search(condition)
 
     if current_user.member.family_owner?
-      @family_members = current_user.member.family.members
+      @members = current_user.member.family.members
+      @members = nil unless @members.where('user_id <> ?', current_user.id)
     end
   end
   
