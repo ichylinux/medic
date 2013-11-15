@@ -12,11 +12,8 @@
         <%= select_tag :member_id, options_from_collection_for_select(@family_members, "id", "name", :selected => current_user.member.id), :onchange => 'select_member(this);' %>
       <% end %>
     <% end %>
-    <ul id="seals" class="seals">
-      <% @seals.each do |s| %>
-        <li><%= render 'show_seal', :seal => s %></li>
-      <% end %>
-    </ul>
+
+    <%= render 'seals' %>
   </div>
 
   <div data-role="footer" data-position="fixed">
