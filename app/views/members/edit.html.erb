@@ -9,12 +9,15 @@
       <% if @family_members.size > 0 %>
         <tr><td>家族：</td></tr>
         <% @family_members.each_with_index do |family_member, i| @family_member = family_member %>
-          <tr><td><%= text_field 'family_member', :name, :index => i %></td></tr>
+          <%= render 'family_member_fields', :nm => family_member, :index => i %>
         <% end %>
         <tr id='add_family_member'><td align='right'><a href='#' onclick='add_family_member();'>家族追加</a></td></tr>
         <script>
-          function add_family_member() {
-            }
+            var index =  <%= @family_members.length %>;
+            function add_family_member() {
+              index ++;
+              jQuery.get('<%= url_for :action => 'add_family_member' %>', {index: index});
+              }
         </script>
       <% end %>
     </table>

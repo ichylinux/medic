@@ -6,11 +6,18 @@
     </div>
   </div>
   <div data-role="content">
-    <ul class="seals">
-      <% @seals.each do |s| %>
-        <li><%= image_tag download_seal_path(s, :thumb => true) %></li>
+    <% if @family_members.size > 0 %>
+      <%= form_for @member do |f| %>
+      <%= f.select :name, @family_members.map{|t| [t.name, t.id]},{:selected => @member.id}, {:onchange => 'select_member($(this).val())'} %>
       <% end %>
-    </ul>
+    <% end %>
+    <%= render 'seals', :seals => @seals %>
+    <script>
+      function select_member(id) {
+        //alert(id);
+        jQuery.get('<%= url_for :action => 'get_seals' %>', {user_id: id});
+       }
+    </script>
   </div>
   <div data-role="footer" data-position="fixed">
     <%= link_to 'お薬手帳シールをアップロード', new_seal_path, :'data-rel' => 'dialog' %>
