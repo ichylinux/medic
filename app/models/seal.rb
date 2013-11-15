@@ -6,7 +6,7 @@ class Seal < ActiveRecord::Base
   def self.search(condition)
     sql = SqlBuilder.new
     sql.append('member_id in (')
-    sql.append('  select member_id from members m')
+    sql.append('  select id from members m')
     sql.append('  where m.user_id = ?', condition.user_id)
     sql.append(')')
 

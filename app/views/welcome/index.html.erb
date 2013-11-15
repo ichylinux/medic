@@ -5,27 +5,20 @@
       <a href="#menu" data-role="button" data-icon="gear" data-iconpos="notext">メニュー</a>
     </div>
   </div>
+
   <div data-role="content">
-    <% if @family_members.size > 0 %>
-      <%= form_for @member do |f| %>
-      <%= f.select :name, @family_members.map{|t| [t.name, t.id]},{:selected => @member.id}, {:onchange => 'select_member($(this).val())'} %>
+    <% if @family_members.present? %>
+      <%= form_tag :action => 'get_seals' do %>
+        <%= select_tag :member_id, options_from_collection_for_select(@family_members, "id", "name", :selected => @member.id), :onchange => 'select_member(this);' %>
       <% end %>
     <% end %>
-    <script>
-      function select_member(id) {
-        var params = {user_id: id, format: 'html'};
-        $.get('<%= url_for :action => 'get_seals' %>', params, function(html) {
-          $('#seals').replaceWith(html);
-        });
-       }
-    </script>
-
-    <ul class="seals">
+    <ul id="seals" class="seals">
       <% @seals.each do |s| %>
         <li><%= render 'show_seal', :seal => s %></li>
       <% end %>
     </ul>
   </div>
+
   <div data-role="footer" data-position="fixed">
     <%= link_to 'お薬手帳シールをアップロード', new_seal_path, :'data-rel' => 'dialog' %>
   </div>
