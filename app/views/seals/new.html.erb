@@ -12,6 +12,10 @@
         <%= f.label :hospital_name %>
         <%= f.text_field :hospital_name %>
       </div>
+      <div>
+        <%= f.label :receipt_date %>
+        <%= f.text_field :receipt_date, :type => 'date' %>
+      </div>
       <div><%= f.submit 'アップロード' %></div>
     <% end %>
   </div>

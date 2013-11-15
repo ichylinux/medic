@@ -12,3 +12,7 @@ end
 もし /^メールの送信者を変更$/ do
   git_diff 'config/initializers/devise.rb', :from => 9, :to => 14
 end
+
+もし /^日付の入力フィールドを追加$/ do
+  git_diff 'app/views/seals/new.html.erb'
+end
