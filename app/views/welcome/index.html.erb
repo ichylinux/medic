@@ -22,7 +22,7 @@
       <% @seals.each do |s| %>
         <li><%= render 'show_seal', :seal => s %></li>
       <% end %>
-    <% end %>
+    </ul>
   </div>
   <div data-role="footer" data-position="fixed">
     <%= link_to 'お薬手帳シールをアップロード', new_seal_path, :'data-rel' => 'dialog' %>
