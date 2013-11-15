@@ -4,6 +4,7 @@
   </div>
   <div data-role="content">
     <%= link_to '個人設定', edit_member_path(current_user.member), :'data-role' => 'button' %>
+    <%= link_to 'ログアウト', destroy_user_session_path, :method => 'delete', :'data-role' => 'button' %>
   </div>
   <div data-role="footer" data-position="fixed">
     <%= link_to '戻る', root_path %>
