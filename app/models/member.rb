@@ -4,7 +4,7 @@ class Member < ActiveRecord::Base
   has_one :family, :through => :family_member
 
   def family_owner?
-    return true unless family_member
+    return false unless family_member
     family_member.owner?
   end
   
