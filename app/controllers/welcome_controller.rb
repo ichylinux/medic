@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 
   def index
     condition = SealCondition.new
-    condition.current_user_id = current_user.id
+    condition.user_id = current_user.id
     @seals = Seal.search(condition)
 
     @member = current_user.member
@@ -15,10 +15,9 @@ class WelcomeController < ApplicationController
   end
   
   def get_seals
-    user_id = params[:user_id]
-    condition = SealCondition.new
-    condition.current_user_id = user_id
+    condition = SealCondition.new(params)
     @seals = Seal.search(condition)
+    render :partial => 'seals'
   end
 
 end

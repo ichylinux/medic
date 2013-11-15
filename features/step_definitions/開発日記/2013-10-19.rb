@@ -9,5 +9,5 @@ end
 end
 
 もし /^検索メソッドを作成$/ do
-  git_diff 'app/models/seal.rb', :from => 6, :to => 14
+  git_diff 'app/models/seal.rb', :from => 5, :to => 15
 end

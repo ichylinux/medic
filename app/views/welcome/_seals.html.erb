@@ -1,5 +1,5 @@
-    <ul class="seals" id="seals">
-      <% seals.each do |s| %>
-        <li><%= image_tag download_seal_path(s, :thumb => true) %></li>
-      <% end %>
-    </ul>
+<ul id="seals" class="seals">
+  <% @seals.each do |s| %>
+    <li><%= render 'show_seal', :seal => s %></li>
+  <% end %>
+</ul>
