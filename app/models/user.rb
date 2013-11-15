@@ -9,23 +9,14 @@ class User < ActiveRecord::Base
 
   has_one :member
 
-  #before_save :set_member
   after_save :create_family_members
   
   private
 
   def create_family_members
-    
     if self.member.nil?
-      self.member = self.build_member
-      self.save!
-      
-      family = Family.new
-      family.family_members << FamilyMember.new
-      family.family_members[0].member = self.member
-      family.save!
+      Family.create_family_for(self)
     end
-    
   end
-  
+
 end

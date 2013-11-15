@@ -3,6 +3,13 @@ class Family < ActiveRecord::Base
   accepts_nested_attributes_for :family_members
   
   has_many :members, :through => :family_members
-  #has_many :members_except_head, :class_name => 'Member', :through => :family_members, :conditions => 'member_type != "0"'
-  #accepts_nested_attributes_for :members, :allow_destroy => true
+
+  def self.create_family_for(user)
+    member = user.build_member
+    member.save!
+    
+    family = Family.new
+    family.family_members << FamilyMember.new(:member => member)
+    family.save!
+  end
 end
