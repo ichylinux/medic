@@ -14,4 +14,8 @@ class MembersController < ApplicationController
     @member.save!
     redirect_to root_path
   end
+
+  def add_family_member
+    @new_member = Member.new
+  end
 end
