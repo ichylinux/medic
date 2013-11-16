@@ -23,8 +23,8 @@ end
   show 'db/schema.rb', :as => 'auto'
 end
 
-もし /^トップページ作成$/ do
-  show 'app/controllers/welcome_controller.rb', :as => 'new'
+もし /^トップページ作成$/ do |string|
+  show 'app/controllers/welcome_controller.rb', :as => 'auto'
   show 'app/views/welcome/index.html.erb', :as => 'new'
   diff 'config/routes.rb', "#{@install_dir}/medic/config/routes.rb"
 end
