@@ -16,3 +16,9 @@ end
 もし /^日付の入力フィールドを追加$/ do
   git_diff 'app/views/seals/new.html.erb'
 end
+
+もし /^アップロード画面を表示$/ do
+  step "user1@example.com がログインしている"
+  step "お薬手帳シールをアップロード をクリックする"
+  step "アップロードダイアログが表示される"
+end

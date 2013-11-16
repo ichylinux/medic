@@ -10,6 +10,7 @@ end
 
 ならば /^アップロードダイアログが表示される$/ do
   assert page.has_selector?('div#upload_dialog')
+  pause 3
   capture
 end
 
