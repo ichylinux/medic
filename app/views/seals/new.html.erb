@@ -4,6 +4,12 @@
   </div>
   <div data-role="content">
     <%= form_for @seal, :html => {:'data-ajax' => false} do |f| %>
+
+    <% if @members.present? %>
+      <div>
+        <%= select_tag 'seal[member_id]', options_from_collection_for_select(@members, "id", "name", :selected => @selected_id) %>
+      </div>
+    <% end %>
       <div>
         <%= f.label :file %>
         <%= f.file_field :file %>
