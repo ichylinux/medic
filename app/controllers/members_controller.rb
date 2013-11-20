@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  include FamilyMemberConst
   def edit
     @member = current_user.member
     @family_members = []
@@ -22,7 +23,7 @@ class MembersController < ApplicationController
           # 家族の新規追加
           member = Member.new
           member.name = member_name
-          family.family_members << FamilyMember.new(:member => member)
+          family.family_members << FamilyMember.new(:member => member, :member_type => MEMBER_TYPE_CHILD)
           family.save!
         else
           # 家族の更新

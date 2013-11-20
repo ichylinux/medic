@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
 
     if current_user.member.family_owner?
       @members = current_user.member.family.members
-      @members = nil unless @members.where('user_id <> ?', current_user.id).present?
+      @members = nil unless @members.where('member_id <> ?', current_user.id).present?
     end
   end
   
