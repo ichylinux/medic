@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  include FamilyMemberConst
+  include FamilyMember::FamilyMemberConst
   def edit
     @member = current_user.member
     @family_members = []
