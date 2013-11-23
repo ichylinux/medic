@@ -43,5 +43,6 @@ class MembersController < ApplicationController
 
   def add_family_member
     @new_member = Member.new
+    render :partial => 'family_member_fields', :locals => {:nm => @new_member, :index => params[:index]}
   end
 end

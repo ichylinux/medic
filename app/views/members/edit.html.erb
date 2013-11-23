@@ -3,23 +3,26 @@
     <h1>個人設定</h1>
   </div>
   <div data-role="content">
+    <script>
+      var index =  <%= @family_members.length %>;
+      function add_family_member() {
+        index ++;
+        jQuery.get('<%= url_for :action => 'add_family_member' %>', {index: index, format: 'html'}, function(html) {
+          jQuery('#add_family_member').before(html);
+          jQuery('[type="text"]').textinput();
+        });
+      }
+    </script>
     <%= form_for @member do |f| %>
     <table>
         <tr><td>名前：<%= f.text_field :name %></td></tr>
         <tr><td>家族：</td></tr>
-      <% if @family_members.size > 0 %>
+      <% if @family_members.present? %>
         <% @family_members.each_with_index do |family_member, i| @family_member = family_member %>
           <%= render 'family_member_fields', :nm => family_member, :index => i %>
         <% end %>
       <% end %>
         <tr id='add_family_member'><td align='right'><a href='#' onclick='add_family_member();'>家族追加</a></td></tr>
-        <script>
-            var index =  <%= @family_members.length %>;
-            function add_family_member() {
-              index ++;
-              jQuery.get('<%= url_for :action => 'add_family_member' %>', {index: index});
-              }
-        </script>
     </table>
       <div>
         <%= f.submit '更新' %>
