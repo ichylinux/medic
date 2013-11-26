@@ -13,20 +13,24 @@
         });
       }
     </script>
+
     <%= form_for @member do |f| %>
-    <table>
+      <table>
         <tr><td>名前：<%= f.text_field :name %></td></tr>
         <tr><td>家族：</td></tr>
-      <% if @family_members.present? %>
-        <% @family_members.each_with_index do |family_member, i| @family_member = family_member %>
-          <%= render 'family_member_fields', :nm => family_member, :index => i %>
+        
+        <% if @family_members.present? %>
+          <% @family_members.each_with_index do |fm, i| %>
+            <%= render 'family_member_fields', :nm => fm, :index => i %>
+          <% end %>
         <% end %>
-      <% end %>
-        <tr id='add_family_member'><td align='right'><a href='#' onclick='add_family_member();'>家族追加</a></td></tr>
-    </table>
-      <div>
-        <%= f.submit '更新' %>
-      </div>
+
+        <tr id='add_family_member'>
+          <td align='right'><a href='' onclick='add_family_member();'>家族追加</a></td>
+        </tr>
+      </table>
+
+      <div><%= f.submit '更新' %></div>
     <% end %>
   </div>
   <div data-role="footer" data-position="fixed">
