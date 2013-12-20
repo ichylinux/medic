@@ -1,7 +1,6 @@
 # coding: UTF-8
 
 ならば /^個人設定画面に遷移する$/ do
-  assert page.has_selector?('#members')
   assert page.find('div[data-role="header"] h1').has_text?('個人設定')
   pause 1
   assert_url "/members/#{current_user.id}/edit"
