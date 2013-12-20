@@ -4,11 +4,15 @@
   </div>
   <div data-role="content">
     <script>
-      var index =  <%= @family_members.length %>;
-      function add_family_member() {
-        index ++;
-        $.get('<%= url_for :action => 'add_family_member' %>', {index: index, format: 'html'}, function(html) {
-          $('#add_family_member').before(html);
+      function add_family_member(link) {
+        var table = $(link).closest('table');
+        var params = {
+          index: table.find('tr').length,
+          format: 'html'
+        };
+
+        $.get('<%= url_for :action => 'add_family_member' %>', params, function(html) {
+          table.find('tr').last().before(html);
           $('[type="text"]').textinput();
         });
       }
@@ -25,8 +29,8 @@
           <% end %>
         <% end %>
 
-        <tr id='add_family_member'>
-          <td align='right'><%= link_to_function '家族追加', 'add_family_member();' %></td>
+        <tr>
+          <td align='right'><%= link_to_function '家族追加', 'add_family_member(this);' %></td>
         </tr>
       </table>
 
