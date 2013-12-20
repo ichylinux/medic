@@ -1,4 +1,4 @@
-<div data-role="page" id="welcome" data-url="<%= edit_member_path %>">
+<div data-role="page" id="members" data-url="<%= edit_member_path(current_user) %>">
   <div data-role="header">
     <h1>個人設定</h1>
   </div>
@@ -7,9 +7,9 @@
       var index =  <%= @family_members.length %>;
       function add_family_member() {
         index ++;
-        jQuery.get('<%= url_for :action => 'add_family_member' %>', {index: index, format: 'html'}, function(html) {
-          jQuery('#add_family_member').before(html);
-          jQuery('[type="text"]').textinput();
+        $.get('<%= url_for :action => 'add_family_member' %>', {index: index, format: 'html'}, function(html) {
+          $('#add_family_member').before(html);
+          $('[type="text"]').textinput();
         });
       }
     </script>
