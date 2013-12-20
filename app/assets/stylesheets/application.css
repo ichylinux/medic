@@ -11,4 +11,5 @@
  *= require jquery.mobile
  *= require_self
  *= require_tree .
+ *= require flipsnap
  */
