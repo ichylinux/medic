@@ -44,7 +44,7 @@ class SealUploader < CarrierWave::Uploader::Base
       self.model.original_filename = file.original_filename
       self.model.content_type = file.content_type
       self.model.file_size = file.size
-      self.model.ocr_text = Daddy::Ocr.scan(file.path)
+      self.model.ocr_text = Daddy::Ocr.scan(file.path) unless Rails.env.test?
     end
   end
 
