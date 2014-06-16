@@ -8,8 +8,13 @@ module SignIn
     fill_in 'Password', :with => 'testtest'
     click_on 'Sign in'
     assert page.has_selector?('div[data-role="page"] div[data-role="header"]')
+    
+    @_current_user = User.find_by_email(email)
   end
-  
+
+  def current_user
+    @_current_user
+  end  
 end
 
 World(SignIn)

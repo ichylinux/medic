@@ -3,3 +3,21 @@
     <li><%= render 'show_seal', :seal => s %></li>
   <% end %>
 </ul>
+
+<div class="viewport">
+  <div data-role="popup" id="popupPhoto" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <div class="flipsnap">
+      <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+        <% @seals.each do |s| %>
+          <div class="item"><%= image_tag download_seal_path(s, :popup => true), :width => '300' %></div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+<script>
+Flipsnap('.flipsnap');
+</script>
+
+

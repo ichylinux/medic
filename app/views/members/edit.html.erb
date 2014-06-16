@@ -1,29 +1,40 @@
-<div data-role="page" id="welcome" data-url="<%= edit_member_path %>">
+<div data-role="page" data-url="<%= edit_member_path(current_user) %>">
   <div data-role="header">
     <h1>個人設定</h1>
   </div>
   <div data-role="content">
+    <script>
+      function add_family_member(link) {
+        var table = $(link).closest('table');
+        var params = {
+          index: table.find('tr').length,
+          format: 'html'
+        };
+
+        $.get('<%= url_for :action => 'add_family_member' %>', params, function(html) {
+          table.find('tr').last().before(html);
+          $('[type="text"]').textinput();
+        });
+      }
+    </script>
+
     <%= form_for @member do |f| %>
-    <table>
+      <table>
         <tr><td>名前：<%= f.text_field :name %></td></tr>
         <tr><td>家族：</td></tr>
-      <% if @family_members.size > 0 %>
-        <% @family_members.each_with_index do |family_member, i| @family_member = family_member %>
-          <%= render 'family_member_fields', :nm => family_member, :index => i %>
+        
+        <% if @family_members.present? %>
+          <% @family_members.each_with_index do |fm, i| %>
+            <%= render 'family_member_fields', :nm => fm, :index => i %>
+          <% end %>
         <% end %>
-      <% end %>
-        <tr id='add_family_member'><td align='right'><a href='#' onclick='add_family_member();'>家族追加</a></td></tr>
-        <script>
-            var index =  <%= @family_members.length %>;
-            function add_family_member() {
-              index ++;
-              jQuery.get('<%= url_for :action => 'add_family_member' %>', {index: index});
-              }
-        </script>
-    </table>
-      <div>
-        <%= f.submit '更新' %>
-      </div>
+
+        <tr>
+          <td align='right'><%= link_to_function '家族追加', 'add_family_member(this);' %></td>
+        </tr>
+      </table>
+
+      <div><%= f.submit '更新' %></div>
     <% end %>
   </div>
   <div data-role="footer" data-position="fixed">

@@ -1,5 +1,7 @@
 <div class="seal">
-  <%= image_tag download_seal_path(seal, :thumb => true) %>
+  <a href="#popupPhoto" data-rel="popup" data-position-to="window" data-inline="true" data-transition="fade">
+    <%= image_tag download_seal_path(seal, :thumb => true) %>
+  </a>
   <div>
     <%= seal.receipt_date_string %>
     <%= seal.hospital_name %>
